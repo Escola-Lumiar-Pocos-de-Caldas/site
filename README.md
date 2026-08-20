@@ -11,8 +11,6 @@ Tailwind já compilado e inlinado, fontes **Malva** embutidas em WOFF2, logos e 
 
 **Hospedagem própria** — suba `index.html` na raiz do domínio.
 
-> ⚠️ **Prioridade 0 antes de apontar o domínio:** o `escolalumiarpocos.com.br` está redirecionando para site de apostas (Meritbet). Publicar a home nova sem limpar a hospedagem só transfere o problema. Antes: limpar malware, trocar todas as senhas (painel, FTP, banco), revisar `.htaccess` e DNS, reemitir o SSL, e pedir revisão no Google Search Console.
-
 ---
 
 ## 2. O que trocar antes de ir ao ar
