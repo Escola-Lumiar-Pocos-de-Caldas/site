@@ -39,9 +39,9 @@ def _pills_bncc(pills, c):
   <span class="text-[12.5px] font-extrabold text-navy-800">{t}</span>
   <span class="text-[12px] text-graphite/55">{d}</span>
 </li>''' for t, d in pills)
-    return f'''<div class="mt-5 rounded-2xl {c['suave']} p-4">
+    return f'''<div class="mt-3 rounded-2xl {c['suave']} p-3">
   <p class="text-[11px] font-extrabold uppercase tracking-[0.14em] {c['txt']}">Habilidades mapeadas no Mosaico</p>
-  <ul class="mt-3 flex flex-wrap gap-2">{linhas}</ul>
+  <ul class="mt-2 flex flex-wrap gap-2">{linhas}</ul>
 </div>'''
 
 
@@ -60,14 +60,14 @@ def _painel(n, e):
     <span class="text-[12px] font-bold uppercase tracking-[0.1em] text-graphite/40">{nome_fase} · {e['dur']}</span>
   </div>
 
-  <p class="eyebrow mt-5">{e['etiqueta']}</p>
-  <h3 class="mt-2.5 text-[23px] font-extrabold leading-snug text-navy-800 sm:text-[28px]">{e['titulo']}</h3>
-  <p class="mt-4 text-[15.5px] leading-relaxed text-graphite/70">{e['texto']}</p>
+  <p class="eyebrow mt-3">{e['etiqueta']}</p>
+  <h3 class="mt-2 text-[23px] font-extrabold leading-snug text-navy-800 sm:text-[28px]">{e['titulo']}</h3>
+  <p class="mt-2.5 text-[15.5px] leading-relaxed text-graphite/70">{e['texto']}</p>
 
-  <ul class="etapa-itens mt-6 space-y-3">{itens}</ul>
+  <ul class="etapa-itens mt-4 space-y-2">{itens}</ul>
   {pills}
 
-  <aside class="caso relative mt-7 overflow-hidden rounded-card bg-navy-800 p-6 text-white">
+  <aside class="caso relative mt-4 overflow-hidden rounded-card bg-navy-800 p-5 text-white">
     <div class="absolute inset-0 grid-paper opacity-60" aria-hidden="true"></div>
     <div class="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-lumiar/20 blur-2xl" aria-hidden="true"></div>
     <div class="relative">
@@ -122,17 +122,17 @@ def secao():
 
     <!-- Palco -->
     <div class="reveal mt-6 overflow-hidden rounded-card border border-navy-800/10 bg-cream-50 shadow-soft" data-palco data-dir="next">
-      <div class="grid lg:grid-cols-[0.94fr_1.06fr]">
+      <div class="grid lg:h-[68vh] lg:max-h-[620px] lg:min-h-[440px] lg:grid-cols-[0.94fr_1.06fr]">
 
-        <!-- Ilustração (acompanha a leitura no desktop) -->
-        <div class="border-b border-navy-800/8 bg-cream-100 lg:border-b-0 lg:border-r">
-          <div class="relative h-[268px] sm:h-[340px] lg:sticky lg:top-[92px] lg:h-[500px]">
+        <!-- Ilustração (altura fixa, proporcional à tela, no desktop) -->
+        <div class="border-b border-navy-800/8 bg-cream-100 lg:h-full lg:border-b-0 lg:border-r">
+          <div class="relative h-[268px] sm:h-[340px] lg:h-full">
             {ilos}
           </div>
         </div>
 
-        <!-- Conteúdo -->
-        <div class="relative bg-white p-6 sm:p-9 lg:p-10">{paineis}</div>
+        <!-- Conteúdo (rola internamente se não couber na altura fixa) -->
+        <div class="relative overflow-y-auto bg-white p-5 sm:p-7 lg:h-full lg:p-8">{paineis}</div>
       </div>
 
       <!-- Controles -->
