@@ -25,6 +25,23 @@ sym_raw = (UP / 'Symbol' / 'Lumiar-Symbol-Yellow.svg').read_text(encoding='utf-8
 sym_svg = re.search(r'<svg.*?</svg>', sym_raw, re.S).group(0)
 favicon = 'data:image/svg+xml;base64,' + base64.b64encode(sym_svg.encode('utf-8')).decode()
 
+# ─────────── Mascote do Hero (PNG com fundo transparente, enviado pelo usuário) ───────────
+mascote_bytes = (B / 'assets' / 'mascote-boasvindas.png').read_bytes()
+mascote_img = 'data:image/png;base64,' + base64.b64encode(mascote_bytes).decode()
+
+# ─────────── Fotos reais dos ciclos (enviadas pelo usuário) ───────────
+foto_infantil_bytes = (B / 'assets' / 'ciclos' / 'infantil.jpg').read_bytes()
+foto_infantil_img = 'data:image/jpeg;base64,' + base64.b64encode(foto_infantil_bytes).decode()
+
+foto_f1_bytes = (B / 'assets' / 'ciclos' / 'fundamental1.jpg').read_bytes()
+foto_f1_img = 'data:image/jpeg;base64,' + base64.b64encode(foto_f1_bytes).decode()
+
+foto_f2_bytes = (B / 'assets' / 'ciclos' / 'fundamental2.jpg').read_bytes()
+foto_f2_img = 'data:image/jpeg;base64,' + base64.b64encode(foto_f2_bytes).decode()
+
+foto_em_bytes = (B / 'assets' / 'ciclos' / 'ensinomedio.jpg').read_bytes()
+foto_em_img = 'data:image/jpeg;base64,' + base64.b64encode(foto_em_bytes).decode()
+
 # rodapé usa a versão branca
 sym_white = re.search(r'<svg.*?</svg>', (UP / 'Symbol' / 'Lumiar-Symbol-White.svg').read_text(encoding='utf-8'), re.S).group(0)
 logo_white_raw = (UP / 'Logo' / 'Lumiar-Logo-White.svg').read_text(encoding='utf-8')
@@ -40,7 +57,7 @@ WA_PATH = ('<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.4
            '-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074'
            '.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413'
            '.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214'
-           '-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896'
+           '-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 '
            '9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892'
            'c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893'
            'A11.821 11.821 0 0 0 20.885 3.4"/>')
@@ -64,7 +81,7 @@ SELOS = ''.join(selo(t) for t in [
 
 # ─────────── Ciclos ───────────
 CICLOS = [
-    dict(id='i3', ativo=True, tag='2 a 5 anos · Infantil', cor='leaf',
+    dict(id='i3', ativo=True, tag='4 a 6 anos · Infantil', cor='leaf',
          titulo='Educação Infantil',
          foco='Acolhimento, adaptação e turma reduzida',
          texto='A entrada na escola é um momento delicado — e aqui ela é conduzida no ritmo da criança. Cada família recebe um plano de adaptação individual, e o mesmo tutor acompanha o grupo o ano inteiro, criando o vínculo que dá segurança para explorar.',
@@ -72,7 +89,8 @@ CICLOS = [
                 'Brincar como linguagem central de aprendizagem',
                 'Rotina ao ar livre na área verde, todos os dias',
                 'Registro diário do dia da criança no Mosaico Digital'],
-         slot='Foto real · roda de crianças na área externa'),
+         slot='Foto real · roda de crianças na área externa',
+         foto=dict(src=foto_infantil_img, pos='object-center', alt='Estudante da Educação Infantil explora achados com lupa e pincel em atividade ao ar livre na Escola Lumiar Poços de Caldas')),
     dict(id='f1', ativo=False, tag='6 a 10 anos · 1º ao 5º ano', cor='sun',
          titulo='Fundamental 1',
          foco='Alfabetização, descoberta e projetos',
@@ -81,7 +99,8 @@ CICLOS = [
                 'Projetos investigativos com produto final apresentado',
                 'Oficinas com mestres especialistas (Português, Matemática)',
                 'Multietariedade: aprender com e ensinar aos colegas'],
-         slot='Foto real · projeto em grupo na sala'),
+         slot='Foto real · projeto em grupo na sala',
+         foto=dict(src=foto_f1_img, pos='object-center', alt='Estudantes do Fundamental 1 colaboram em projeto em grupo com materiais de arte na Escola Lumiar Poços de Caldas')),
     dict(id='f2', ativo=False, tag='11 a 14 anos · 6º ao 9º ano', cor='navy',
          titulo='Fundamental 2',
          foco='Mentoria, protagonismo e saúde mental',
@@ -90,7 +109,8 @@ CICLOS = [
                 'A Roda: assembleia com voz e voto do estudante',
                 'Projetos autorais com apresentação pública',
                 'Preparação sólida para o Ensino Médio, sem massacre de apostila'],
-         slot='Foto real · adolescente apresentando projeto'),
+         slot='Foto real · adolescente apresentando projeto',
+         foto=dict(src=foto_f2_img, pos='object-center', alt='Estudantes do Fundamental 2 observam e discutem um globo terrestre em atividade de projeto na Escola Lumiar Poços de Caldas')),
     dict(id='em', ativo=False, tag='15 a 17 anos · Ensino Médio', cor='sun',
          titulo='Ensino Médio',
          foco='Orientação de futuro e projetos reais',
@@ -99,7 +119,8 @@ CICLOS = [
                 'Preparação para ENEM e vestibulares integrada aos projetos',
                 'Mentoria de carreira e experiências fora da escola',
                 'Avaliação integrada e contínua, sem surpresa no fim do ano'],
-         slot='Foto real · estudante do Médio em projeto'),
+         slot='Foto real · estudante do Médio em projeto',
+         foto=dict(src=foto_em_img, pos='object-center', alt='Estudantes do Ensino Médio estudam em grupo na sala de aula da Escola Lumiar Poços de Caldas')),
 ]
 
 CORES = {
@@ -114,6 +135,17 @@ def painel(c):
         '<li class="flex items-start gap-3"><svg class="mt-1 h-[18px] w-[18px] shrink-0 %s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="text-[15.5px] leading-snug text-graphite/80">%s</span></li>' % (cor['dot'], i)
         for i in c['itens'])
     hidden = '' if c['ativo'] else ' hidden'
+    foto = c.get('foto')
+    if foto:
+        # Foto real já disponível: sem o placeholder .photo-slot (gradiente + legenda),
+        # só a moldura do card.
+        foto_wrap_class = 'relative aspect-[4/5] overflow-hidden rounded-card ring-1 ring-navy-800/10'
+        foto_html = f'<img src="{foto["src"]}" alt="{foto["alt"]}" class="h-full w-full object-cover {foto.get("pos", "")}">'
+        foto_attrs = ''
+    else:
+        foto_wrap_class = 'photo-slot aspect-[4/5] rounded-card ring-1 ring-navy-800/10'
+        foto_html = f'<!-- SUBSTITUIR: <img src="assets/fotos/{c["id"]}.jpg" alt="{c["slot"]}" class="h-full w-full object-cover"> -->'
+        foto_attrs = f' data-slot="{c["slot"]}"'
     return f'''<div role="tabpanel" id="painel-{c['id']}" aria-labelledby="aba-{c['id']}" class="grid gap-8 rounded-card border border-navy-800/10 bg-white p-6 sm:p-9 lg:grid-cols-[1fr_0.8fr] lg:items-center{hidden}" data-panel="{c['id']}">
   <div>
     <span class="pill {cor['chip']}">{c['tag']}</span>
@@ -126,8 +158,8 @@ def painel(c):
       <a href="#visita" class="btn-outline-navy">Agendar visita</a>
     </div>
   </div>
-  <div class="photo-slot aspect-[4/5] rounded-card ring-1 ring-navy-800/10" data-slot="{c['slot']}">
-    <!-- SUBSTITUIR: <img src="assets/fotos/{c['id']}.jpg" alt="{c['slot']}" class="h-full w-full object-cover"> -->
+  <div class="{foto_wrap_class}"{foto_attrs}>
+    {foto_html}
   </div>
 </div>'''
 
@@ -219,7 +251,6 @@ FORMULARIO = f'''<form id="form-visita" novalidate class="space-y-5">
         <option>Fundamental 1 (1º ao 5º ano)</option>
         <option>Fundamental 2 (6º ao 9º ano)</option>
         <option>Ensino Médio</option>
-        <option>Lumiar Teen Hub (contraturno)</option>
         <option>Colônia LumiFérias</option>
       </select>
     </div>
@@ -276,7 +307,6 @@ FOOTER = f'''<footer id="escola" class="relative overflow-hidden bg-navy-950 pt-
           <ul class="mt-5 space-y-3 text-[15px] text-white/65">
             <li><a href="#metodologia" class="transition hover:text-white">Metodologia</a></li>
             <li><a href="#ciclos" class="transition hover:text-white">Nossos ciclos</a></li>
-            <li><a href="#teenhub" class="transition hover:text-white">Lumiar Teen Hub</a></li>
             <li><a href="#lumiferias" class="transition hover:text-white">LumiFérias</a></li>
             <li><a href="#familias" class="transition hover:text-white">Famílias Lumiar</a></li>
           </ul>
@@ -368,7 +398,6 @@ SCHEMA = '''<script type="application/ld+json">
       { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Ensino Fundamental 1", "description": "Alfabetização, descoberta e projetos investigativos.", "provider": { "@id": "https://www.escolalumiarpocos.com.br/#escola" } } },
       { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Ensino Fundamental 2", "description": "Mentoria individual, protagonismo e projetos autorais.", "provider": { "@id": "https://www.escolalumiarpocos.com.br/#escola" } } },
       { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Ensino Médio", "description": "Itinerários formativos, projeto de vida e preparação para o ENEM.", "provider": { "@id": "https://www.escolalumiarpocos.com.br/#escola" } } },
-      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Lumiar Teen Hub", "description": "Contraturno de IA, inglês, podcast e música para 10 a 16 anos.", "provider": { "@id": "https://www.escolalumiarpocos.com.br/#escola" } } },
       { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Colônia LumiFérias", "description": "Colônia de férias em janeiro e julho para crianças de 4 a 12 anos.", "provider": { "@id": "https://www.escolalumiarpocos.com.br/#escola" } } }
     ]
   }
@@ -524,6 +553,7 @@ html = (B / 'src.html').read_text(encoding='utf-8')
 
 subs = {
     'FAVICON_SRC': favicon,
+    'MASCOTE_IMG': mascote_img,
     'LOGO_SVG': logo_inline,
     'PROCESSO_PROJETOS': processo.secao(),
     'PROCESSO_JS': processo.script(),
@@ -533,7 +563,6 @@ subs = {
     'WA_VISITA': wa('Olá! Gostaria de agendar uma visita na Escola Lumiar Poços de Caldas.'),
     'WA_EXPERIENCIA': wa('Olá! Quero agendar um Dia de Experiência para meu filho(a) na Escola Lumiar Poços de Caldas.'),
     'WA_CICLOS': wa('Olá! Gostaria de consultar as vagas disponíveis por turma na Escola Lumiar Poços de Caldas.'),
-    'WA_TEENHUB': wa('Olá! Quero garantir uma vaga no Lumiar Teen Hub (contraturno). Podem me passar valores e horários?'),
     'WA_LUMIFERIAS': wa('Olá! Quero receber a programação da Colônia LumiFérias.'),
     'WA_TRANSICAO': wa('Olá! Estou pensando em trocar meu filho(a) de escola no meio do ano e quero saber mais sobre a Condição de Transição Suave da Lumiar.'),
     'WA_PROJETOS': wa('Olá! Vi no site como funcionam os projetos e gostaria de ver um projeto de perto, na escola.'),

@@ -4,3 +4,4 @@ __pycache__/
 out.css
 page.html
 shots/
+.DS_Store

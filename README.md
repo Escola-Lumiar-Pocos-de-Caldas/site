@@ -11,6 +11,8 @@ Tailwind já compilado e inlinado, fontes **Malva** embutidas em WOFF2, logos e 
 
 **Hospedagem própria** — suba `index.html` na raiz do domínio.
 
+> ⚠️ **Prioridade 0 antes de apontar o domínio:** o `escolalumiarpocos.com.br` está redirecionando para site de apostas (Meritbet). Publicar a home nova sem limpar a hospedagem só transfere o problema. Antes: limpar malware, trocar todas as senhas (painel, FTP, banco), revisar `.htaccess` e DNS, reemitir o SSL, e pedir revisão no Google Search Console.
+
 ---
 
 ## 2. O que trocar antes de ir ao ar
@@ -28,9 +30,16 @@ Cada área de imagem é um `div.photo-slot` com a legenda do que entra ali e um 
 | Ciclo Fundamental 1 | Projeto em grupo na sala |
 | Ciclo Fundamental 2 | Adolescente apresentando projeto |
 | Ensino Médio | Estudante do Médio em projeto |
-| Teen Hub | Adolescentes em projeto de tecnologia/podcast |
 
 Formato ideal: JPG otimizado (≤ 250 KB), tratamento quente e saturação natural, sem cara de banco de imagens.
+
+### Hero (v2 — recriado a partir de uma referência sua)
+
+Fundo em gradiente (laranja quente + brilho amarelo no canto superior direito + acento roxo sutil no canto inferior esquerdo), título e texto em branco, e um único botão azul (“Bright Blue” `#4F63F1`, da paleta estendida da marca) para “Agendar Dia de Experiência”. a `.hero-gradient` está definida em `input.css`.
+
+**Pendência:** a ilustração da mascote (a menina 3D com fones de ouvido, casaco listrado com “Lumiar”) ainda não foi recebida — no lugar dela há um placeholder simples (uma silhueta genérica em SVG) só para o layout não ficar vazio. Assim que você mandar o arquivo (de preferência PNG com fundo transparente), é só substituir o bloco marcado com `SUBSTITUIR` no Hero, em `source/src.html`, por uma tag `<img>` apontando para o arquivo.
+
+Nesta recriação eu simplifiquei a composição para bater com a sua referência: tirei o selo “Matrículas abertas”, o botão secundário “Conhecer as turmas” e o card/selo flutuante “Turmas reduzidas” que existiam na versão anterior. Se sentir falta de algum desses elementos, é só pedir de volta.
 
 ### Seção “Como funciona na prática” (`#projetos`)
 
@@ -54,16 +63,15 @@ Os três depoimentos são **placeholders plausíveis**, marcados com `<!-- SUBST
 - **Links do rodapé:** `/trabalhe-conosco/` e `/perguntas-e-respostas/` apontam para as páginas antigas — reaponte quando as novas existirem.
 - **Condição de Transição Suave:** o texto promete isenção da taxa de rematrícula + plano de adaptação de 4 semanas. Confirme com a direção antes de publicar.
 - **Colônia LumiFérias:** faixa etária (4 a 12) e duração (2 semanas) são propostas — ajuste ao real.
-- **Teen Hub:** horário 14h–17h, seg. a sex. — ajuste ao real.
 
 ---
 
 ## 3. Conversão
 
-- **12 pontos de contato WhatsApp**, todos com mensagem pré-configurada e contexto próprio (hero, ciclo específico, Teen Hub, LumiFérias, transição, rodapé, botão flutuante).
+- **12 pontos de contato WhatsApp**, todos com mensagem pré-configurada e contexto próprio (hero, ciclo específico, LumiFérias, transição, rodapé, botão flutuante).
 - **Botão flutuante fixo** em todas as telas.
 - **Formulário** (nome, WhatsApp com máscara, e-mail, idade, série, observação) valida no cliente e abre o WhatsApp já com todos os dados formatados — nenhum backend necessário.
-- Cada CTA tem `data-track="..."` (`cta-hero-wa`, `cta-teenhub`, `cta-form`, `cta-float`…). Basta plugar GA4/Meta Pixel escutando esse atributo.
+- Cada CTA tem `data-track="..."` (`cta-hero-wa`, `cta-form`, `cta-float`…). Basta plugar GA4/Meta Pixel escutando esse atributo.
 
 Para enviar as leads também para CRM ou e-mail, há um ponto marcado no JS: `/* INTEGRAÇÃO: envie também para o seu CRM/e-mail aqui */`.
 
@@ -73,7 +81,7 @@ Para enviar as leads também para CRM ou e-mail, há um ponto marcado no JS: `/*
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| Navy | `#1A2A44` / `#12203A` / `#0C1526` | Header, hero, Teen Hub, rodapé |
+| Navy | `#1A2A44` / `#12203A` / `#0C1526` | Hero, rodapé |
 | Laranja Solar | `#E67E22` / `#F39C12` | CTAs primários, eyebrows, LumiFérias |
 | Amarelo Lumiar | `#FFC132` | Logo, destaques, selos (cor oficial da marca) |
 | Verde Folha | `#27AE60` / `#2ECC71` | Natureza, confirmações, Infantil |
@@ -86,7 +94,9 @@ Tipografia **Malva** (Regular 400, Medium 500, Bold 700, ExtraBold 800, Black 90
 
 ## 5. Estrutura da página
 
-Header fixo → Hero + barra de credibilidade → faixa de selos → 4 pilares + Mosaico Digital → **Como funciona na prática (trilha das 7 etapas)** → seletor de ciclos em abas → Lumiar Teen Hub → Colônia LumiFérias → depoimentos + Google → “Por que trocar de escola no meio do ano?” (acordeão de objeções) → formulário de agendamento → rodapé institucional. Botão flutuante do WhatsApp sempre visível.
+Header fixo → Hero + barra de credibilidade → faixa de selos → 4 pilares → **Como funciona na prática (trilha das 7 etapas)** → seletor de ciclos em abas → Colônia LumiFérias → depoimentos + Google → “Por que trocar de escola no meio do ano?” (acordeão de objeções) → formulário de agendamento → rodapé institucional. Botão flutuante do WhatsApp sempre visível.
+
+> Nesta primeira versão do site, removemos o banner da Plataforma Mosaico Digital e a seção do Lumiar Teen Hub. Ambos podem voltar facilmente quando fizer sentido — é só pedir.
 
 ### A trilha do processo de projetos (interativa)
 
@@ -124,7 +134,7 @@ Meta tags completas, Open Graph, canonical e dois blocos Schema.org: `School` (c
 
 ## 7. Próximos passos sugeridos
 
-1. Landing pages dedicadas: **Infantil 3**, **Fundamental 2** e **Lumiar Teen Hub** (o briefing pede as três; a home já linka para cada tema).
+1. Landing pages dedicadas: **Infantil 3** e **Fundamental 2** (o briefing pede as duas; a home já linka para cada tema). Quando o Lumiar Teen Hub voltar ao site, vale uma landing dedicada também.
 2. Página de Metodologia expandida e página institucional “A Escola”.
 3. Integração das avaliações reais do Google Meu Negócio.
 4. Pixel de conversão + campanhas de tráfego pago apontando para as LPs.

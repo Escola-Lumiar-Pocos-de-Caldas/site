@@ -36,7 +36,7 @@
     @apply inline-flex items-center justify-center gap-2.5 rounded-pill px-6 py-3.5 text-[15px] font-bold leading-none transition-all duration-300 will-change-transform;
   }
   .btn-primary {
-    @apply btn bg-sun-600 text-white shadow-cta hover:bg-sun-700 hover:-translate-y-0.5 active:translate-y-0;
+    @apply btn bg-[#FFC031] text-white shadow-cta hover:bg-[#E0A92B] hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-ghost {
     @apply btn border-2 border-white/25 bg-white/5 text-white hover:border-white/60 hover:bg-white/10;

@@ -48,7 +48,7 @@ module.exports = {
       boxShadow: {
         soft: '0 10px 30px rgba(26,42,68,0.06)',
         lift: '0 18px 45px rgba(26,42,68,0.12)',
-        cta: '0 12px 28px rgba(230,126,34,0.35)',
+        cta: '0 12px 28px rgba(255,192,49,0.35)',
       },
       maxWidth: {
         content: '1180px',
