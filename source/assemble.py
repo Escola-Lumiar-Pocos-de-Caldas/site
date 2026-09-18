@@ -154,7 +154,6 @@ def painel(c):
     <p class="mt-5 max-w-2xl text-[16px] leading-relaxed text-graphite/75">{c['texto']}</p>
     <ul class="mt-7 grid gap-3.5 sm:grid-cols-2">{itens}</ul>
     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-      <a href="{wa('Olá! Tenho interesse no ciclo ' + c['titulo'] + ' na Escola Lumiar Poços de Caldas. Podem me passar as vagas e valores?')}" target="_blank" rel="noopener" class="btn-primary" data-track="cta-ciclo-{c['id']}">{ICON_WA_SM} Ver vagas em {c['titulo']}</a>
       <a href="#visita" class="btn-outline-navy">Agendar visita</a>
     </div>
   </div>
@@ -265,7 +264,7 @@ FORMULARIO = f'''<form id="form-visita" novalidate class="space-y-5">
   <p id="form-erro" class="hidden rounded-2xl bg-sun-600/10 px-4 py-3 text-[14px] font-bold text-sun-700" role="alert"></p>
 
   <button type="submit" class="btn-primary w-full !py-4 !text-base" data-track="cta-form">
-    {ICON_WA} Enviar e falar no WhatsApp
+    Enviar e falar no WhatsApp
   </button>
 
   <p class="text-center text-[12.5px] leading-relaxed text-graphite/50">
@@ -278,8 +277,6 @@ MAPS = 'https://www.google.com/maps/search/?api=1&query=Escola%20Lumiar%20Po%C3%
 MAPS_EMBED = 'https://maps.google.com/maps?q=Rua%20Comendador%20Jo%C3%A3o%20Afonso%20Junqueira%2C%20201%2C%20Jardim%20dos%20Estados%2C%20Po%C3%A7os%20de%20Caldas%20-%20MG&t=&z=16&ie=UTF8&iwloc=&output=embed'
 
 FOOTER = f'''<footer id="escola" class="relative overflow-hidden bg-navy-950 pt-16 text-white sm:pt-20">
-  <div class="absolute inset-0 grid-paper opacity-60" aria-hidden="true"></div>
-
   <div class="wrap relative">
     <div class="grid gap-12 lg:grid-cols-[1.15fr_1fr_1.1fr]">
 
@@ -316,8 +313,6 @@ FOOTER = f'''<footer id="escola" class="relative overflow-hidden bg-navy-950 pt-
           <ul class="mt-5 space-y-3 text-[15px] text-white/65">
             <li><a href="#visita" class="transition hover:text-white">Matrículas</a></li>
             <li><a href="#visita" class="transition hover:text-white">Agendar visita</a></li>
-            <li><a href="/trabalhe-conosco/" class="transition hover:text-white">Trabalhe conosco</a></li>
-            <li><a href="/perguntas-e-respostas/" class="transition hover:text-white">Perguntas frequentes</a></li>
             <li><a href="#visita" class="transition hover:text-white">Contato</a></li>
           </ul>
         </div>
@@ -347,16 +342,8 @@ FOOTER = f'''<footer id="escola" class="relative overflow-hidden bg-navy-950 pt-
   </div>
 </footer>'''
 
-# ─────────── WhatsApp flutuante ───────────
-WPP = f'''<a href="{wa('Olá! Vim pelo site e gostaria de agendar uma visita na Escola Lumiar Poços de Caldas.')}" target="_blank" rel="noopener"
-   class="group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-pill bg-[#25D366] p-4 font-bold text-white sm:py-3.5 sm:pl-4 sm:pr-5 shadow-[0_14px_34px_rgba(37,211,102,0.45)] transition-transform hover:-translate-y-1 sm:bottom-7 sm:right-7"
-   aria-label="Falar no WhatsApp com a Escola Lumiar Poços de Caldas" data-track="cta-float">
-  <span class="relative flex h-6 w-6 items-center justify-center">
-    <span class="absolute inline-flex h-full w-full rounded-full bg-white/60 animate-pulseRing" aria-hidden="true"></span>
-    {wa_icon('relative h-6 w-6')}
-  </span>
-  <span class="hidden text-[14.5px] leading-none sm:inline">Agendar visita</span>
-</a>'''
+# ─────────── WhatsApp flutuante (removido a pedido do cliente) ───────────
+WPP = ''
 
 # ─────────── Schema.org ───────────
 SCHEMA = '''<script type="application/ld+json">

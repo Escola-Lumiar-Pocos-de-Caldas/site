@@ -160,23 +160,6 @@ def secao():
       </div>
     </div>
 
-    <!-- Fechamento -->
-    <div class="reveal mt-8 overflow-hidden rounded-card bg-cream-100 p-7 ring-1 ring-inset ring-navy-800/8 sm:p-10">
-      <div class="grid items-center gap-7 lg:grid-cols-[1fr_auto]">
-        <div>
-          <div class="flex items-center gap-3">
-            <svg class="h-6 w-6 shrink-0 text-sun-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
-            <h3 class="text-[22px] font-extrabold leading-snug text-navy-800 sm:text-[26px]">E aí tudo recomeça — a cada trimestre.</h3>
-          </div>
-          <p class="mt-3.5 max-w-2xl text-[15.5px] leading-relaxed text-graphite/70">
-            Novo levantamento de interesse, novo projeto do ciclo, novo projeto individual. O que muda é o tema; o que se acumula é a capacidade de investigar, planejar, executar e apresentar — que é o que o Miguel vai levar para qualquer profissão que escolher, astronauta ou não.
-          </p>
-        </div>
-        <a href="WA_PROJETOS" target="_blank" rel="noopener" class="btn-primary shrink-0 !px-7 !py-4 !text-base" data-track="cta-projetos">
-          ICON_WA Ver um projeto de perto
-        </a>
-      </div>
-    </div>
   </div>
 </section>
 '''
