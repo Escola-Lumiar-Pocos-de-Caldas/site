@@ -1,7 +1,8 @@
 # Nova Homepage — Escola Lumiar Poços de Caldas
 
-Arquivo único e autocontido: `index.html` (~250 KB, sem dependências externas de CSS/JS).
-Tailwind já compilado e inlinado, fontes **Malva** embutidas em WOFF2, logos e símbolo em SVG inline.
+`index.html` (~290 KB) + pasta `assets/img/` com as fotos reais em WebP (carregadas à parte, com `loading="lazy"` exceto a da Hero). Tailwind já compilado e inlinado, fontes **Malva** embutidas em WOFF2, logos e símbolo em SVG inline. Também na raiz: `robots.txt`, `sitemap.xml` e `og-lumiar-pocos.jpg` (imagem usada nas prévias de link do Meta/Google/WhatsApp — mantenha esse arquivo se recriar a home).
+
+> As fotos reais deixaram de ser embutidas como base64 dentro do `index.html` (era o principal motivo do desempenho mobile estar baixo — ~900 KB extras dentro de um único HTML bloqueante). Agora elas são arquivos `.webp` separados em `assets/img/`, com `width`/`height` explícitos (evita layout shift) e carregamento adiado nas que não aparecem na primeira dobra. **Se voltar a rodar `source/assemble.py`**, ele ainda embute as fotos como base64 no `index.html` — esse script não foi atualizado para seguir esse mesmo padrão, então depois de rodá-lo vale repetir a extração para `assets/img/`.
 
 ---
 
