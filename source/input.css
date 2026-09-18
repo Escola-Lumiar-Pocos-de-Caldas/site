@@ -144,6 +144,10 @@
   .text-balance {
     text-wrap: balance;
   }
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
+  }
   .grid-paper {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),

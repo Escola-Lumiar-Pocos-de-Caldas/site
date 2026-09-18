@@ -276,7 +276,7 @@ FORMULARIO = f'''<form id="form-visita" novalidate class="space-y-5">
 MAPS = 'https://www.google.com/maps/search/?api=1&query=Escola%20Lumiar%20Po%C3%A7os%20de%20Caldas%2C%20Rua%20Comendador%20Jo%C3%A3o%20Afonso%20Junqueira%2C%20201'
 MAPS_EMBED = 'https://maps.google.com/maps?q=Rua%20Comendador%20Jo%C3%A3o%20Afonso%20Junqueira%2C%20201%2C%20Jardim%20dos%20Estados%2C%20Po%C3%A7os%20de%20Caldas%20-%20MG&t=&z=16&ie=UTF8&iwloc=&output=embed'
 
-FOOTER = f'''<footer id="escola" class="relative overflow-hidden bg-navy-950 pt-16 text-white sm:pt-20">
+FOOTER = f'''<footer id="escola" class="cv-auto relative overflow-hidden bg-navy-950 pt-16 text-white sm:pt-20" style="contain-intrinsic-size:auto 520px">
   <div class="wrap relative">
     <div class="grid gap-12 lg:grid-cols-[1.15fr_1fr_1.1fr]">
 

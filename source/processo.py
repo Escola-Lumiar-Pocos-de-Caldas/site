@@ -106,7 +106,7 @@ def secao():
     pontos = ''.join(_ponto(n, e) for n, e in enumerate(ETAPAS, start=1))
 
     return f'''<!-- ══════════════════════════ COMO FUNCIONA NA PRÁTICA ══════════════════════════ -->
-<section id="projetos" class="relative overflow-hidden bg-white py-20 sm:py-28">
+<section id="projetos" class="cv-auto relative overflow-hidden bg-white py-20 sm:py-28" style="contain-intrinsic-size:auto 1300px">
   <div class="pointer-events-none absolute -left-32 top-1/3 h-[420px] w-[420px] rounded-full bg-leaf-500/5 blur-3xl" aria-hidden="true"></div>
   <div class="pointer-events-none absolute -right-32 top-2/3 h-[420px] w-[420px] rounded-full bg-sun-600/5 blur-3xl" aria-hidden="true"></div>
 
