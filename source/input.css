@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Malva — tipografia oficial Lumiar (Brand Guidelines v0.2.4). Fallback: Lato.
+   Servida como arquivos .woff2 externos (não em base64): inline infla o HTML e
+   bloqueia a primeira renderização, especialmente perceptível no Safari iOS. */
+@font-face{font-family:'Malva';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/MalvaRegular.sub.woff2) format('woff2')}
+@font-face{font-family:'Malva';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/MalvaMedium.sub.woff2) format('woff2')}
+@font-face{font-family:'Malva';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/MalvaBold.sub.woff2) format('woff2')}
+@font-face{font-family:'Malva';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/MalvaExtraBold.sub.woff2) format('woff2')}
+@font-face{font-family:'Malva';font-style:normal;font-weight:900;font-display:swap;src:url(assets/fonts/MalvaBlack.sub.woff2) format('woff2')}
+
 @layer base {
   :root {
     --nav-h: 76px;
